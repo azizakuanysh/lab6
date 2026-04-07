@@ -1,10 +1,9 @@
 import { useState, useEffect, useCallback, useRef } from "react";
 
-export default function useFetch(fetcher, deps = []) {
+export function useFetch(url) {
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
-  const mountedRef = useRef(false);
 
   const loadData = useCallback(async () => {
     setLoading(true);
